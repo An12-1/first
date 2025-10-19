@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+    .father{
+        position: relative;
+        height: 500px;
+    }
+    .sidebar{
+        position:absolute;
+       background-color: bisque;
+       height: 250px;
+       right: 0;
+        top: 500px;
+        width: 150px;
+        padding:10px;
+    }
+    .fixed-style{
+       position:fixed
+       
+
+    }
+    .bottom{
+    
+       background-color: bisque;
+        position:absolute;
+     font-size: larger;
+     text-align: center;
+     left: 800px;
+    }
+   </style>
+</head>
+<body>
+    <div class="father">
+   <div class="sidebar" id="sidebar">
+     <h2>相关搜索</h2>
+    <a href="#">相关搜索1</a><br>
+    <a href="#">相关搜索2</a><br>
+    <a href="#">相关搜索3</a><br>
+    <a href="#">相关搜索4</a><br>
+    <a href="#">相关搜索5</a><br>
+    <a href="#">相关搜索6</a><br>
+
+   </div>
+   </div>
+ <div style="height: 950px;"> </div>
+ <div class="bottom" id="bottom">底部相关搜索</div>
+
+   <script>
+    const sidebar=document.getElementById('sidebar');
+    let isFixed=false;
+    window.addEventListener('scroll',function(){
+   const scrollthreshold=500;
+    const scrollY=window.scrollY;
+    if(scrollY>scrollthreshold&&!isFixed){
+        sidebar.classList.remove('sidebar');
+        sidebar.classList.add('fixed-style');
+        isFixed=true;
+    }
+    else if(scrollY<=scrollthreshold&&isFixed){
+        sidebar.classList.remove('fixed-style');
+        sidebar.classList.add('sidebar');
+    }
+    })
+   </script>
+</body>
+</html>
